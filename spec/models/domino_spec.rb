@@ -1,7 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Domino, type: :model do
-
   describe "in general" do
     let(:domino) { Domino.new(0, 4) }
 
@@ -35,25 +34,25 @@ RSpec.describe Domino, type: :model do
       d1 = Domino.new(1, 4)
       d2 = Domino.new(2, 1)
 
-      expect(d1).to_not eql(d2)
+      expect(d1).not_to eql(d2)
     end
   end
 
   describe "#double?" do
     it "returns true if lhs and rhs are the same" do
-      expect(Domino.new(0,0).double?).to be true
-      expect(Domino.new(1,1).double?).to be true
-      expect(Domino.new(2,2).double?).to be true
-      expect(Domino.new(3,3).double?).to be true
-      expect(Domino.new(4,4).double?).to be true
-      expect(Domino.new(5,5).double?).to be true
-      expect(Domino.new(6,6).double?).to be true
+      expect(Domino.new(0, 0).double?).to be true
+      expect(Domino.new(1, 1).double?).to be true
+      expect(Domino.new(2, 2).double?).to be true
+      expect(Domino.new(3, 3).double?).to be true
+      expect(Domino.new(4, 4).double?).to be true
+      expect(Domino.new(5, 5).double?).to be true
+      expect(Domino.new(6, 6).double?).to be true
     end
 
     it "returns false if lhs and rhs are different" do
-      expect(Domino.new(3,6).double?).to be false
-      expect(Domino.new(2,5).double?).to be false
-      expect(Domino.new(0,1).double?).to be false
+      expect(Domino.new(3, 6).double?).to be false
+      expect(Domino.new(2, 5).double?).to be false
+      expect(Domino.new(0, 1).double?).to be false
     end
   end
 end

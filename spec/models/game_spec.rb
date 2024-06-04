@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Game, type: :model do
   let(:game) { Game.new }
@@ -23,19 +23,18 @@ RSpec.describe Game, type: :model do
 
     describe "assigning first turn" do
       it "sets next_turn to whoever has highest double" do
-        allow(p1).to receive(:hand) { [Domino.new(2,3), Domino.new(5,6)] }
-        allow(p2).to receive(:hand) { [Domino.new(4,3), Domino.new(2,2)] }
+        allow(p1).to receive(:hand) { [Domino.new(2, 3), Domino.new(5, 6)] }
+        allow(p2).to receive(:hand) { [Domino.new(4, 3), Domino.new(2, 2)] }
 
         expect(game.assign_next_turn(p1, p2)).to eql(p2)
       end
 
       it "sets next_turn to whoever has highest sum if no doubles found" do
-        allow(p1).to receive(:hand) { [Domino.new(2,3), Domino.new(5,6)] }
-        allow(p2).to receive(:hand) { [Domino.new(4,3), Domino.new(2,0)] }
+        allow(p1).to receive(:hand) { [Domino.new(2, 3), Domino.new(5, 6)] }
+        allow(p2).to receive(:hand) { [Domino.new(4, 3), Domino.new(2, 0)] }
 
         expect(game.assign_next_turn(p1, p2)).to eql(p1)
       end
     end
   end
-
 end

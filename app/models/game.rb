@@ -1,7 +1,7 @@
 class Game
   attr_accessor :players, :boneyard, :next_turn
 
-  def initialize()
+  def initialize
     @players = [Player.new, Player.new]
     @boneyard = DominoSet.build.dominos
     3.times { @boneyard.shuffle }
@@ -18,6 +18,7 @@ class Game
     top = in_hand.find(&:double?) || in_hand.first
 
     return p1 if p1.hand.include?(top)
-    return p2
+
+    p2
   end
 end

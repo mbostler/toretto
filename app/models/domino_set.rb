@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# DominoSet does cool stuff when it can.
 class DominoSet
   attr_accessor :dominos
 
@@ -11,10 +14,8 @@ class DominoSet
     new.tap do |ds|
       (0..6).each do |lhs|
         (0..6).each do |rhs|
-          begin
-            ds << Domino.new(lhs, rhs)
-          rescue Error
-          end
+          ds << Domino.new(lhs, rhs)
+          # rescue Error
         end
       end
     end
@@ -29,7 +30,7 @@ class DominoSet
 
     @dominos << domino
   end
-  alias_method :<<, :add
+  alias << add
 
   def contains?(domino)
     @dominos.include?(domino)

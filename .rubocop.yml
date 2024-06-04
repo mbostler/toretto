@@ -1,0 +1,10 @@
+require:
+  - rubocop-capybara
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
+AllCops:
+  NewCops: enable
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

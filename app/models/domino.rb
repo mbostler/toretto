@@ -1,6 +1,6 @@
 class Domino
   attr_accessor :lhs, :rhs
-  
+
   def initialize(lhs, rhs)
     validate(lhs)
     validate(rhs)
@@ -13,7 +13,7 @@ class Domino
     (@lhs == other.lhs && @rhs == other.rhs) ||
       (@lhs == other.rhs && @rhs == other.lhs)
   end
-  alias_method :eql?, :==
+  alias eql? ==
 
   def hash
     [lhs, rhs].sort.hash

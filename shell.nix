@@ -10,4 +10,6 @@ pkgs.mkShell {
     pkgs.which
     pkgs.zlib
   ];
+
+  GEM_HOME="./.bundle";
 }
