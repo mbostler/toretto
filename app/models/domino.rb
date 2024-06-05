@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
+# Represents a single domino from a set of 28 unique dominos.
 class Domino
   attr_accessor :lhs, :rhs
 
   def initialize(lhs, rhs)
-    validate(lhs)
-    validate(rhs)
-
     @lhs = lhs
     @rhs = rhs
+
+    validate!
   end
 
   def ==(other)
@@ -23,9 +25,13 @@ class Domino
     @lhs == @rhs
   end
 
+  def validate!
+    validate_side!(@lhs) && validate_side!(rhs)
+  end
+
   private
 
-  def validate(input)
+  def validate_side!(input)
     return true if (0..6).cover?(input)
 
     raise ArgumentError, "input must be between 0 and 6"

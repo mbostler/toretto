@@ -4,6 +4,7 @@
 class DominoSet
   attr_accessor :dominos
 
+  # Error from dominoSet
   class Error < StandardError
     def message
       "Oh boy"

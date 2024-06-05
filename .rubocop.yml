@@ -1,5 +1,6 @@
 require:
   - rubocop-capybara
+  - rubocop-factory_bot
   - rubocop-rails
   - rubocop-rspec
   - rubocop-rspec_rails
@@ -8,3 +9,19 @@ AllCops:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
+
+RSpec/MultipleExpectations:
+  Max: 2
+
+Style/Documentation:
+  Exclude:
+    - spec/**/*
+    - test/**/*
+    - db/migrate/*
+    - config/application.rb
+    - app/helpers/application_helper.rb
+    - app/mailers/application_mailer.rb
+    - app/models/application_record.rb

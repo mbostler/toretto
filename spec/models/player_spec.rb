@@ -1,7 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe Player, type: :model do
-  context "a new player" do
+require_relative "../rails_helper"
+
+RSpec.describe Player do
+  context "with a new player" do
     let(:player) { Player.new }
 
     it "has empty hand to start" do

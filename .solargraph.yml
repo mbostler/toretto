@@ -6,11 +6,19 @@ exclude:
   - test/**/*
   - vendor/**/*
   - ".bundle/**/*"
-require: []
+require:
+  - actioncable
+  - actionmailer
+  - actionpack
+  - actionview
+  - activejob
+  - activemodel
+  - activerecord
+  - activestorage
+  - activesupport
 domains: []
 reporters:
   - rubocop
-  - require_not_found
 formatter:
   rubocop:
     cops: safe

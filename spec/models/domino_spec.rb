@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe Domino, type: :model do
+require_relative "../rails_helper"
+
+RSpec.describe Domino do
   describe "in general" do
     let(:domino) { Domino.new(0, 4) }
 
@@ -39,20 +41,15 @@ RSpec.describe Domino, type: :model do
   end
 
   describe "#double?" do
-    it "returns true if lhs and rhs are the same" do
-      expect(Domino.new(0, 0).double?).to be true
-      expect(Domino.new(1, 1).double?).to be true
-      expect(Domino.new(2, 2).double?).to be true
-      expect(Domino.new(3, 3).double?).to be true
-      expect(Domino.new(4, 4).double?).to be true
-      expect(Domino.new(5, 5).double?).to be true
-      expect(Domino.new(6, 6).double?).to be true
+    (0..6).each do |i|
+      it "returns true if lhs and rhs are both #{i}" do
+        expect(Domino.new(i, i).double?).to be true
+      end
     end
 
     it "returns false if lhs and rhs are different" do
-      expect(Domino.new(3, 6).double?).to be false
-      expect(Domino.new(2, 5).double?).to be false
-      expect(Domino.new(0, 1).double?).to be false
+      domino = build(:domino, :non_double)
+      expect(domino.double?).to be false
     end
   end
 end
