@@ -7,7 +7,7 @@ class DominoSet
   # Error from dominoSet
   class Error < StandardError
     def message
-      "Oh boy"
+      "Already exists in set"
     end
   end
 
@@ -15,8 +15,8 @@ class DominoSet
     new.tap do |ds|
       (0..6).each do |lhs|
         (0..6).each do |rhs|
-          ds << Domino.new(lhs, rhs)
-          # rescue Error
+          domino = Domino.new(lhs, rhs)
+          (ds << domino) unless ds.contains?(domino)
         end
       end
     end

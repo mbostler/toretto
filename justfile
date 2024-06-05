@@ -12,3 +12,6 @@ spec *ARGS:
 # run docs for solargraph lsp to pickup new gems
 docs:
     bundle exec yard gems
+
+# runs linter and spec checks
+check: rubocop spec
